@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Pass </title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .aadhar-card {
+        width: 400px;
+        height: 250px;
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxX8eIH_GKRq_Hw2TTNCjIgjSBd6OFBbfHkQ&usqp=CAU');
+        
+        
+        background-size: cover; /* This property ensures the background image covers the entire card */
+        background-repeat: no-repeat;
+        border: 2px solid #000;
+        border-radius: 10px;
+        margin: 20px auto;
+        page-break-inside: avoid;
+    }
+    .aadhar-card h1 {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .details {
+        margin-bottom: 20px;
+    }
+    .details p {
+        margin-bottom: 5px;
+    }
+    .back-side {
+        
+        padding-top: 50px;
+        margin-top: 20px;
+    }
+    .back-side p {
+        margin-bottom: 5px;
+    }
+    .btn-container {
+        text-align: center;
+    }
+    .print-btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="front-page">
+    <div class="aadhar-card" id="aadharCardFront">
+        <h1>PMPML BUSS PASS</h1>
+        <div class="details">
+            <p>Name: John Doe</p>
+            <p>Aadhar Number: 1234 5678 9012</p>
+            <p>Date of Birth: 01-Jan-1990</p>
+            <p>Gender: Male</p>
+            <p>Address: 123, Street Name, City, Country</p>
+        </div>
+    </div>
+</div>
+
+<div class="back-page">
+    <div class="aadhar-card" id="aadharCardBack">
+        <h1>Back Side</h1>
+        <div class="back-side">
+            <br>
+            <br>  
+            <img src="D:/Document/Sign.jpg"  height="10"/>
+            <br>
+            <br><br>
+            <p>Signature:</p>
+            
+            <!-- Add your signature image here -->
+            <!-- <img src="signature.jpg" alt="Signature" style="max-width: 100%; height: auto;"> -->
+        </div>
+    </div>
+</div>
+
+<!--<div class="btn-container">
+    <button class="print-btn" onclick="generatePDF()">Download Bus Pass PDF</button>
+</div>
+</div>
+<a href="member.png" class="download-btn" download="bus_pass_card.pdf">Download Bus Pass</a>
+</div>-->
+
+<div>
+<button onclick="printPDF()">Print PDF</button>
+</div>
+
+<script>
+    function printPDF() {
+        window.print();
+    }
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script>
+function generatePDF() {
+    const pdf = new jsPDF();
+
+    // Front side
+    const aadharCardFrontElement = document.getElementById('aadharCardFront');
+    pdf.html(aadharCardFrontElement, {
+        callback: function() {
+            // Back side
+            const aadharCardBackElement = document.getElementById('aadharCardBack');
+            pdf.addPage();
+            pdf.html(aadharCardBackElement, {
+                margin: { top: 10 }
+            });
+
+            // Save PDF
+            pdf.save('PMPML Pass.pdf');
+        }
+    });
+}
+</script>
+
+</body>
+</html>

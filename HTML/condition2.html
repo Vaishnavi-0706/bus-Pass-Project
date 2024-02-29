@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="condition2.css">
+    <title>SS</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="payment.css" method="post" name="submit-to-google-sheet">
+            <input type="radio" name="amount" value="750"> 1 Month $750
+            <input type="radio" name="amount" value="2000"> 3 Month $2000
+            <input type="radio" name="amount" value="3000"> 6 Month $3000
+            <input type="radio" name="amount" value="5000"> 1 Year $5000
+            <br><br>
+            <!--input type="submit" ><a href="condition1.html">Proceed to Checkout</a></button-->
+            <button type = "submit"><a href="payment.html">Proceed to Checkout</a></button>
+            
+        </form>
+        
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyC3oXGErDZhK8fr67EllMmlXa8u9jboe_MX8LKPphH5FVuYAtIcnsjhmEXkOkHEnbt/exec'
+            const form = document.forms['submit-to-google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+    </div>
+</body>
+
+</html>

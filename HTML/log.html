@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login Form</title>
+
+        <style type="text/css">
+            {
+              margin: 0;
+              padding: 0;
+              box-sizing: 'Merriwether Sans',
+              sans-serif;
+            }
+
+            body{
+                background-color: #e5e5e5;
+            }
+            .form-container{
+                width: 500px;
+                padding: 20px;
+                margin: 0 auto 50px;
+                position: relative;
+                z-index: 1;
+                top: 60px;
+            }
+
+            .form-container:after{
+                content: "";
+                background: linear-gradient(to bottom, #6bEACC 0%, #497be8 100%);
+                height: 80%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+            .form-container .Form-horizontal{
+                position: relative;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgb(0 0 0/30%);
+                padding: 15px 25px;
+                z-index: 0;
+                border-top: 30px solid #0775C0;
+            }
+
+            .form-container .Form-horizontal .heading{
+                color: #E0214B;
+                font-size: 30PX;
+                font-weight: 600;
+                text-align: center;
+                margin: 0;
+            }
+
+            .form-container .Form-horizontal span.site_name{
+                color: rgba(0,0,0,.7);
+                font-size: 18px;
+                text-align: center;
+                margin: 5px 0 30px 0;
+                display: block;
+            }
+
+            .Form-horizontal .field input{
+                height: 100%;
+                width: 350%;
+                outline: none;
+                padding-left: 20px;
+                font-size: 17px;
+                border: 1px solid lightgray;
+                border-radius: 25px;
+                transition: all 0.3s ease;
+            }
+
+            .Form-horizontal .field input:focus,
+            .Form-horizontal .field input:valid{
+                border-color: #4158d0;
+            }
+
+
+            .Form-horizontal .field{
+                height: 50px;
+                width: 100px;
+                margin-top: 20px;
+                position: relative;
+            }
+
+            .Form-horizontal .field label{
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                color: #999999;
+                font-size: 14px;
+                font-weight: 400;
+                pointer-events: none;
+                transform: translateY(-50%);
+                transition: all 0.3s ease;
+            }
+
+            .Form-horizontal .field input:focus ~ label,
+            .Form-horizontal .field input:valid ~ lable{
+                top: 0%;
+                font-size: 16px;
+                color: #4158d0;
+                background: #fff;
+                transform: translateY(-50%);
+            }
+
+            .Form-horizontal .content{
+                display: flex;
+                width: 100%;
+                height: 50%;
+                font-size: 16px;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .Form-horizontal .content .checkbox{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .Form-horizontal .content input{
+                width: 15px;
+                height: 15px;
+                background: red;
+
+            }
+
+            .Form-horizontal.content label{
+                color: #262626;
+                user-select: none;
+                padding-left: 5px;
+            }
+
+            .btn{
+                margin: 5px 0;
+                height: 45px;
+                width: 100px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn .inner{
+                height: 100%;
+                width: 300%;
+                position: absolute;
+                left: -100%;
+                z-index: -1;
+                background: -webkit-linear-gradient(right, #56d8e4, #497be8, #56d8e4,#497be8);
+                transition: all 0.4s;
+            }
+
+            .btn:hover .inner{
+                left: 0;
+            }
+
+            .btn button{
+              height: 100%;
+              width: 100%;
+              background: none;
+              color: #fff;
+              font-size: 18px;
+              font-weight: 500;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              background: transparent;
+              cursor: pointer;
+              border: none;
+            }
+
+            .signup-link{
+                color: #262626;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .signup-link a{
+                color: #4158d0;
+                text-decoration: none;
+            }
+
+            .signup-link a:hover{
+                text-decoration: underline;
+            }
+            .login-form ul{
+                text-align: center;
+                list-style: none;
+                padding: 15px 0 0;
+                margin: 0;
+            }
+            .login-form ul li:first-child{
+                border-right: 1px solid #fff;
+            }
+            .login-form ul li{
+                color: #fff;
+                font-size: 13px;
+                margin: 0 5px;
+                display: inline-block;
+            }
+            .login-form ul li{
+                color: #fff;
+                font-weight: 600;
+                padding: 0 10px 0 3px;
+                transition: all 0.5s;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="form-container">
+           <form class="Form-horizontal" name="submit-to-google-sheet" method="post" action="save.php">
+            <div class="heading">Login Form</div>
+            <span class="site name">Welcome to Bus Pass</span>
+            <div class="field">
+                <input type="text" required="" name="Email">
+                <label>Email Address</label>
+            </div>
+
+            <div class="field">
+                <input type="Passward" required="" name="Passward">
+                <label>Passward</label>
+            </div>
+
+            <div class="content">
+                <div class="Checkbox">
+                    <input type="checkbox" id="
+                    remember-me">
+                    <labelfor="remember-me">Remember me</label>
+                </div>
+                <div class="pass-link">
+                    <a href="forgetpassward.html"</a>
+                </div>
+            </div>
+
+            <div class="btn">
+                <div class="inner"></div>
+               <!--- <button type="submit">login</button>-->
+                <button type="submit"><a href="i.html">login</a></button>
+
+            </div>
+
+            <div class="signup-link"> Not a member? <a 
+            href="index.html">Signup now</a></div>
+
+           </form>
+
+           <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyC3oXGErDZhK8fr67EllMmlXa8u9jboe_MX8LKPphH5FVuYAtIcnsjhmEXkOkHEnbt/exec'
+            const form = document.forms['submit-to-google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+           
+
+           <div class="login-form">
+            <ul>
+                <li>Do not have a account? <a
+                    href="index.html">Register</a></li>
+                    <li><a href="forgetpassward.html">Forget Passward</a></li>
+            </ul>
+           </div>
+        </div>
+    </body>
+</html>

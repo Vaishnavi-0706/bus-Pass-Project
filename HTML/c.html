@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration for other</title>
+        <link rel="stylesheet" href="c.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Register for other</h1>
+            <form action="#" method="POST" name="submit-to-google-sheet">
+            <!--- <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required> -->
+
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="person_name"><br><br>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="person_dob" required>
+        
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" required>
+
+                <label for="time">Time of college:</label><br>
+                <input type="time" id="Time">To <input type="time" id="Time" name="time"><br><br>
+
+                <label for="startingdate">Starting Date of pass:</label>
+                <input type="date" id="startingdate" name="startingdate" required>
+        
+                <label for="busboarding">Bus Boarding Point:</label>
+                <input type="text" id="busboarding" name="busboarding" required>
+        
+                <label for="busalighting">Bus Alighting Point:</label>
+                <input type="text" id="busalighting" name="busalighting" required>
+                
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male" name="gender">Male</option>
+                    <option value="female" name="gender">Female</option>
+                    <option value="other" name="gender">Other</option>
+                </select>
+                <br>
+                <br>
+
+                <label for="mobile">Mobile Number:</label><br>
+                <input type="tel" id="mobile" name="person_mobile"><br><br>
+
+                <label for="office_add">Office Address</label><br>
+                <input type="text" id="office_add" name="office_add"><br><br>
+
+                <label for="hm_add">Home Address:</label><br>
+                <input type="text" id="hm_add" name="person_hm_add"><br><br>
+
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <label for="image"><h8>upload Image:</h8></label><br>
+                    <input type="file" name="image" accept="image/*">
+
+                    <!-- <label for="bonafide"><h8>Bonafide:</h8></label><br>
+                    <input type="file" name="bonafide" accept="bonafide/*"> -->
+
+                    <label for="adhar"><h8>Adhar Card Image:</h8></label><br>
+                    <input type="file" name="adhar" accept="adhar/*">
+
+                    <label for="el_bil"><h8>Electricity Bill:</h8></label><br>
+                    <input type="file" name="el_bil" accept="el_bil/*">
+
+
+
+
+                   <button type = "submit"><a href="condition3.html">Register</a></button> 
+                   <!--<button type = "submit">Register</button>-->
+                </form>   
+            </form>
+            
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbyC3oXGErDZhK8fr67EllMmlXa8u9jboe_MX8LKPphH5FVuYAtIcnsjhmEXkOkHEnbt/exec'
+                const form = document.forms['submit-to-google-sheet']
+              
+                form.addEventListener('submit', e => {
+                  e.preventDefault()
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message))
+                })
+              </script>
+        </div>
+
+    </body>
+</html>

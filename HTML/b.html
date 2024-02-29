@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration for Student</title>
+        <link rel="stylesheet" href="b.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Register</h1>
+            <form action="#" method="POST" name="submit-to-google-sheet">
+            <!--- <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required> -->
+
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="student_name" required><br><br>
+
+                <label for="mobile">Mobile Number:</label><br>
+                <input type="tel" id="mobile" name="student_mobile" required><br><br>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="student_dob" required>
+        
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="student_age" min="1" required>
+
+                <label for="clg_name">College Name:</label><br>
+                <input type="text" id="clg_name" name="clg_name" required><br><br>
+
+                <label for="clg_add">College Address</label><br>
+                <input type="text" id="clg_add" name="clg_add" required><br><br>
+
+                <label for="hm_add">Home Address:</label><br>
+                <input type="text" id="hm_add" name="hm_add" required><br><br>
+
+                <label for="startingdate">Starting Date:</label>
+                <input type="date" id="startingdate" name="startingdate" required>
+        
+                <label for="busboarding">Bus Boarding Point:</label>
+                <input type="text" id="busboarding" name="busboarding" required>
+        
+                <label for="busalighting">Bus Alighting Point:</label>
+                <input type="text" id="busalighting" name="busalighting" required>
+
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <label for="image"><h8>upload Image:</h8></label><br>
+                    <input type="file" name="image" accept="image/*" required>
+
+                    <label for="bonafide"><h8>Bonafide:</h8></label><br>
+                    <input type="file" name="bonafide" accept="bonafide/*" required>
+
+                    <label for="Fee Receipt of College"><h8>Fee Receipt of College:</h8></label><br>
+                    <input type="file" name="Fee" accept="bonafide/*" required>
+
+                    <label for="adhar"><h8>Adhar Card Image:</h8></label><br>
+                    <input type="file" name="adhar" accept="adhar/*" required>
+
+                    <label for="el_bil"><h8>Electricity Bill:</h8></label><br>
+                    <input type="file" name="el_bil" accept="el_bil/*" required>
+
+                   <!--<button type = "submit"><a href="condition2.html">register</a></button>--->
+                   <!---<button type = "submit">Register</button>-->
+                   <button type = "submit"><a href="condition2.html">register</a></button>
+                </form>
+            </form>
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbyC3oXGErDZhK8fr67EllMmlXa8u9jboe_MX8LKPphH5FVuYAtIcnsjhmEXkOkHEnbt/exec'
+                const form = document.forms['submit-to-google-sheet']
+              
+                form.addEventListener('submit', e => {
+                  e.preventDefault()
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message))
+                })
+              </script>
+        </div>
+
+    </body>
+</html>
